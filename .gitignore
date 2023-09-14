@@ -1,3 +1,7 @@
+# Clien and Server builds
+public
+server/dist
+
 # Logs
 logs
 *.log

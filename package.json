@@ -1,0 +1,26 @@
+{
+  "name": "university-campus",
+  "version": "1.0.0",
+  "description": "A fictional university campus site, built as a full-stack chalange.",
+  "author": "Marcin Ogar",
+  "main": "server/src/app.ts",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.server.json",
+    "start": "ts-node --project ./server/tsconfig.server.json"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "./server/src"
+    ],
+    "ext": "ts,ejs"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.2.2"
+  }
+}
