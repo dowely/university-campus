@@ -1,5 +1,5 @@
-# Clien and Server builds
-public
+# Client and Server builds
+server/public
 server/dist
 
 # Logs
