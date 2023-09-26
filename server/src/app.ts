@@ -26,12 +26,19 @@ export let db: Db;
   try {
     await client.connect();
 
-    (await import("./server")).default.listen(process.env.PORT);
-
     db = client.db();
 
     console.log("\x1b[96m[app]: Connected to the database...\x1b[0m");
   } catch (e) {
     console.log("\x1b[91m[app]: Failed connecting to the database:\n\x1b[0m", e);
+    return;
+  }
+
+  try {
+    (await import("./server")).default.listen(process.env.PORT, () => {
+      console.log(`\x1b[34m[app]: Listening on port ${process.env.PORT}...\x1b[0m`);
+    });
+  } catch (e) {
+    console.log("\x1b[91m[app]: Failed starting the server:\n\x1b[0m", e);
   }
 })();

@@ -1,27 +1,22 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "noImplicitThis": false,
-    "removeComments": true,
-    "sourceMap": false,
-    "typeRoots": ["node_modules/@types"],
-    "baseUrl": "../",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "outDir": "dist"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"],
   "ts-node": {
     "transpileOnly": true,
     "files": true,
-    "compilerOptions": {}
-  }
+    "compilerOptions": {
+      "target": "es6",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "esModuleInterop": true,
+      "strict": true,
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": true,
+      "noImplicitThis": false,
+      "removeComments": true,
+      "sourceMap": false,
+      "typeRoots": ["node_modules/@types"],
+      "baseUrl": "../"
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

@@ -9,7 +9,6 @@
     "client"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc -p tsconfig.server.json",
     "serve": "ts-node --project ./server/tsconfig.server.json ./server/src/app.ts",
     "start": "ts-node --project ./server/tsconfig.server.json"
   },
@@ -22,7 +21,6 @@
   "devDependencies": {
     "dotenv": "^16.3.1",
     "prettier": "^3.0.3",
-    "rimraf": "^5.0.1",
     "typescript": "^5.2.2"
   }
 }
