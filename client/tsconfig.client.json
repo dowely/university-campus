@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "server/public",
+    "baseUrl": "../",
+    "noImplicitAny": true,
+    "noImplicitThis": false,
+    "module": "NodeNext",
+    "target": "ES6",
+    "allowJs": true,
+    "moduleResolution": "NodeNext",
+    "isolatedModules": true,
+    "strict": true,
+    "paths": {
+      "@/*": ["client/src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "exclude": ["node_modules"]
+}

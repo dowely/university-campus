@@ -1,6 +1,6 @@
 # Client and Server builds
 server/public
-server/dist
+server/manifest.json
 
 # Logs
 logs

@@ -9,18 +9,25 @@
     "client"
   ],
   "scripts": {
-    "serve": "ts-node --project ./server/tsconfig.server.json ./server/src/app.ts",
-    "start": "ts-node --project ./server/tsconfig.server.json"
+    "serve": "nodemon --exec ts-node --project ./server/tsconfig.server.json ./server/src/app.ts",
+    "build": "webpack --watch --config ./client/webpack.config.ts",
+    "dev": "concurrently \"npm:serve\" \"npm:build\""
   },
   "nodemonConfig": {
     "watch": [
-      "./server/src"
+      "./server/src",
+      "./server/manifest.json"
     ],
     "ext": "ts,ejs"
   },
   "devDependencies": {
+    "concurrently": "^8.2.1",
     "dotenv": "^16.3.1",
     "prettier": "^3.0.3",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
   }
 }
