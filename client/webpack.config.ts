@@ -2,6 +2,7 @@ import { Configuration } from "webpack";
 import path from "path";
 import { VueLoaderPlugin } from "vue-loader";
 import { WebpackManifestPlugin } from "webpack-manifest-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const config: Configuration = {
   mode: "production",
@@ -10,6 +11,10 @@ const config: Configuration = {
   },
   module: {
     rules: [
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
       {
         test: /\.ts$/,
         loader: "ts-loader",
@@ -36,6 +41,7 @@ const config: Configuration = {
       publicPath: "",
       useEntryKeys: true,
     }),
+    new MiniCssExtractPlugin({ filename: "styles.[chunkhash].css" }),
   ],
   output: {
     filename: "[name].[chunkhash].js",

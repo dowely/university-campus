@@ -1,3 +1,4 @@
+import "./styles/index.scss";
 import { createLoginForm } from "./components/SSR/LoginForm";
 
 const loginForm = createLoginForm();
