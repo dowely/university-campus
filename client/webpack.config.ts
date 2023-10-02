@@ -28,6 +28,10 @@ const config: Configuration = {
         test: /\.vue$/,
         loader: "vue-loader",
       },
+      {
+        test: /\.(png|jpeg|jpg|gif|svg)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   resolve: {
@@ -47,6 +51,7 @@ const config: Configuration = {
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",
     path: path.resolve(__dirname, "../server/public"),
+    assetModuleFilename: "assets/[name].[hash][ext]",
     clean: true,
   },
   optimization: {

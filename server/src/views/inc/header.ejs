@@ -5,12 +5,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="author" content="Marcin Ogar">
+  <meta name="description" content="A fictional university campus site, built as a full-stack chalange.">
+  <meta name="keywords" content="university, campus, events, professors, programs, education">
+  <meta name="google" content="notranslate">
   <title>University Campus</title>
+  <link rel="icon"
+        type="image/svg"
+        sizes="32x32"
+        href="assets/building-columns.svg" />
   <link rel="stylesheet" href="styles.07a55adcffc9722ca00f.css">
+  <script defer src="https://kit.fontawesome.com/43d257bcb7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header class="site-header">
-    <h1 class="site-header__title">Hello world!!!</h1>
+    <div class="site-header__menu-toggle">
+      <span class="site-header__menu-toggle__bar"></span>
+      <h1 class="site-header__logo-text">University <strong>Campus</strong></h1>
+      <nav class="site-header__menu-links">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Programs</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Professors</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__menu-forms">
+        <div id="search-form" class="site-header__search-form-container">
+          <form action="/search" method="GET">
+            <label for="site-search-field">Search on this site...</label>
+            <input type="search"
+                   id="site-search-field"
+                   name="searchPhrase"
+                   aria-label="Search through site content"
+                   placeholder="Search on this site..."
+                   required>
+            <button><i class="fa-solid fa-magnifying-glass">Search</i></button>
+          </form>
+        </div>
+        <div id="login-form" class="site-header__login-form-container"><%- loginFormHtml %></div>
+      </div>
+    </div>
   </header>
-  <div id="login-form"><%- loginFormHtml %></div>
