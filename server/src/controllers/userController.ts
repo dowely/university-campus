@@ -2,13 +2,13 @@ import { Request, Response, NextFunction } from "express";
 import { renderToString } from "vue/server-renderer";
 import { createLoginForm } from "@university-campus/client/src/components/SSR/LoginForm";
 import User from "../models/User";
-import { main, vendors } from "../../manifest.json";
 
 const home = (req: Request, res: Response) => {
   const loginForm = createLoginForm();
 
   renderToString(loginForm).then(loginFormHtml => {
-    res.render("home", { loginFormHtml, main, vendors });
+    res.locals.loginFormHtml = loginFormHtml;
+    res.render("home");
   });
 };
 

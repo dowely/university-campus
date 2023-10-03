@@ -1,6 +1,13 @@
 .site-header {
-  &__title {
+  &__logo-text {
     color: $mainOrange;
-    background-color: aqua;
+
+    @include atMedium {
+      color: green;
+    }
+
+    @include atLarge {
+      color: red;
+    }
   }
 }

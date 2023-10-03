@@ -13,8 +13,10 @@
   <link rel="icon"
         type="image/svg"
         sizes="32x32"
-        href="assets/building-columns.svg" />
-  <link rel="stylesheet" href="styles.07a55adcffc9722ca00f.css">
+        href="<%= manifest['assets/building-columns.svg'] %>" />
+  <link rel="stylesheet" href="<%= manifest.styles %>" type="text/css">
+  <script defer src="<%= manifest.main %>"></script>
+  <script defer src="<%= manifest.vendors %>"></script>
   <script defer src="https://kit.fontawesome.com/43d257bcb7.js" crossorigin="anonymous"></script>
 </head>
 
@@ -42,7 +44,7 @@
                    aria-label="Search through site content"
                    placeholder="Search on this site..."
                    required>
-            <button><i class="fa-solid fa-magnifying-glass">Search</i></button>
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
         </div>
         <div id="login-form" class="site-header__login-form-container"><%- loginFormHtml %></div>

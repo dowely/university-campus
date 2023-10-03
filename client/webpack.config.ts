@@ -3,11 +3,12 @@ import path from "path";
 import { VueLoaderPlugin } from "vue-loader";
 import { WebpackManifestPlugin } from "webpack-manifest-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const config: Configuration = {
   mode: "production",
   entry: {
-    main: "./client/src/index.ts",
+    main: ["./client/src/index.ts", "./client/src/styles/index.scss"],
   },
   module: {
     rules: [
@@ -48,6 +49,7 @@ const config: Configuration = {
     new MiniCssExtractPlugin({ filename: "styles.[chunkhash].css" }),
   ],
   output: {
+    publicPath: ".",
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",
     path: path.resolve(__dirname, "../server/public"),
@@ -63,10 +65,16 @@ const config: Configuration = {
           name: "vendors",
           chunks: "all",
         },
+        styles: {
+          name: "styles",
+          type: "css/mini-extract",
+          chunks: "all",
+          enforce: true,
+        },
       },
     },
     minimize: true,
-    minimizer: [`...`],
+    minimizer: [`...`, new CssMinimizerPlugin()],
   },
 };
 

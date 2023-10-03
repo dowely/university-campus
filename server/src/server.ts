@@ -3,8 +3,14 @@ import express from "express";
 import routerMain from "./router-main";
 import routerApi from "./router-api";
 import userController from "./controllers/userController";
+import manifest from "../manifest.json";
 
 const app = express();
+
+app.use((req, res, next) => {
+  res.locals.manifest = manifest;
+  next();
+});
 
 app.set("views", "./server/src/views");
 app.set("view engine", "ejs");

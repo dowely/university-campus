@@ -1,0 +1,13 @@
+@use "sass:map";
+
+@mixin atMedium {
+  @media screen and (min-width: map.get($breakpoints, "md")) {
+    @content;
+  }
+}
+
+@mixin atLarge {
+  @media screen and (min-width: map.get($breakpoints, "lg")) {
+    @content;
+  }
+}
