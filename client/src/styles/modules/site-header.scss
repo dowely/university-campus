@@ -1,13 +1,135 @@
+@use "sass:color";
+
 .site-header {
+  border: 1px solid green;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 12px 0 16px;
+  display: flex;
+  align-items: center;
+
   &__logo-text {
-    color: $mainOrange;
+    max-width: 10rem;
+    font-size: 1.75rem;
+    font-weight: 100;
+    margin: 0;
 
-    @include atMedium {
-      color: green;
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  &__menu-toggle {
+    box-sizing: content-box;
+    width: 26px;
+    height: 32px;
+    padding: 12px 18px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__bar {
+      display: block;
+      height: 3px;
+      background-color: $mainWhite;
+      transition: transform 300ms ease-out;
+
+      .site-header__menu-toggle--active & {
+        transform: rotate(135deg);
+      }
+
+      &--top {
+        width: 50%;
+
+        .site-header__menu-toggle--active & {
+          transform: rotate(45deg) translate(9px, 6px);
+        }
+      }
+
+      &--bottom {
+        width: 50%;
+        align-self: flex-end;
+
+        .site-header__menu-toggle--active & {
+          transform: rotate(45deg) translate(-8px, -5px);
+        }
+      }
+    }
+  }
+
+  &__menu-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+
+    ul {
+      padding: 18px 24px;
+      background-color: color.adjust($color: #0d3b66, $alpha: -0.25);
+      max-width: 50%;
+      min-width: fit-content;
+      border-bottom-right-radius: 25px;
     }
 
-    @include atLarge {
-      color: red;
+    li {
+      font-size: 1.25rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
+  }
+
+  &__menu-forms {
+    border: 1px solid orange;
+
+    font-size: 0;
+    margin-left: auto;
+    margin-right: 18px;
+  }
+
+  &__search-form-container {
+    display: inline-block;
+    font-size: 1rem;
+
+    label {
+      display: none;
+    }
+
+    &__input-wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      padding: 18px;
+      background-color: color.adjust($color: $mainBlue, $alpha: -0.25);
+    }
+
+    input {
+      min-width: 100%;
+      border: 2px solid color.adjust($color: $mainBlue, $lightness: -10%);
+      border-radius: 4px;
+      padding-block: 5px;
+      padding-inline: 10px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      display: inline-block;
+    }
+  }
+
+  &__login-form-container {
+    display: inline-block;
+    font-size: 1rem;
   }
 }

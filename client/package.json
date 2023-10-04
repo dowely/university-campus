@@ -15,5 +15,8 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-manifest-plugin": "^5.0.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }
