@@ -8,7 +8,7 @@ import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 const config: Configuration = {
   mode: "production",
   entry: {
-    main: ["./client/src/index.ts", "./client/src/styles/index.scss"],
+    main: ["./client/src/main.ts", "./client/src/styles/index.scss"],
   },
   module: {
     rules: [

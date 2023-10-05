@@ -15,21 +15,24 @@
         sizes="32x32"
         href="<%= manifest['assets/building-columns.svg'] %>" />
   <link rel="stylesheet" href="<%= manifest.styles %>" type="text/css">
-  <script defer src="<%= manifest.main %>"></script>
-  <script defer src="<%= manifest.vendors %>"></script>
+  <% for (const script of scripts) { %>
+  <script defer src="<%= manifest[script] %>"></script>
+  <% } %>
   <script defer src="https://kit.fontawesome.com/43d257bcb7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="site-header__menu-toggle site-header__menu-toggle--active">
+  <header id="site-header" class="site-header">
+    <div class="site-header__menu-toggle"
+         :class="{'site-header__menu-toggle--active': mainStore.isMobileMenuOpen}"
+         @click="mainStore.toggleMobileMenu">
       <span class="site-header__menu-toggle__bar site-header__menu-toggle__bar--top"></span>
       <span class="site-header__menu-toggle__bar"></span>
       <span class="site-header__menu-toggle__bar site-header__menu-toggle__bar--bottom"></span>
     </div>
     <h1 class="site-header__logo-text"><a href="#">University <strong>Campus</strong></a></h1>
     <nav class="site-header__menu-links">
-      <ul>
+      <ul :class="{active: mainStore.isMobileMenuOpen}">
         <li><a href="#">About Us</a></li>
         <li><a href="#">Programs</a></li>
         <li><a href="#">Events</a></li>
@@ -38,10 +41,11 @@
       </ul>
     </nav>
     <div class="site-header__menu-forms">
-      <div id="search-form" class="site-header__search-form-container">
+      <div class="site-header__search-form-container">
         <form action="/search" method="GET">
           <label for="site-search-field">Search on this site...</label>
-          <div class="site-header__search-form-container__input-wrapper">
+          <div class="site-header__search-form-container__input-wrapper"
+               :class="{'site-header__search-form-container__input-wrapper--active': mainStore.isSearchInputOpen}">
             <input type="search"
                    id="site-search-field"
                    name="searchPhrase"
@@ -49,7 +53,7 @@
                    placeholder="Search on this site..."
                    required>
           </div>
-          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button @click.prevent="mainStore.toggleSearchInput"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
       </div>
       <div id="login-form" class="site-header__login-form-container"><%- loginFormHtml %></div>

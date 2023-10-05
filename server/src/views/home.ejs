@@ -1,20 +1,20 @@
 <%- include('./inc/header') %>
-    <section class="page-banner">
-        <picture class="page-banner__bg-image">
-            <source srcset="
-            <%= manifest['assets/library-hero-wide-low-res.jpg'] %> 1280w,
-            <%= manifest['assets/library-hero-wide-hi-res.jpg'] %> 1920w"
-                    media="(min-width: 992px)">
-            <img srcset="
-            <%= manifest['assets/library-hero-narrow-low-res.jpg'] %> 720w,
-            <%= manifest['assets/library-hero-narrow-hi-res.jpg'] %> 1080w"
-                 alt="Library hall">
-        </picture>
-        <div class="page-banner__content wrapper">
-            <h2 class="page-banner__title">Welcome!</h2>
-            <h3 class="page-banner__subtitle">We think you'll like it here.</h3>
-            <h4 class="page-banner__lead">Why don't you check out the major you're interested in?</h4>
-            <a href="#">Find your major</a>
-        </div>
-    </section>
-    <%- include('./inc/footer') %>
+<section class="page-banner">
+    <picture class="page-banner__bg-image">
+        <source srcset="
+        <%= manifest['assets/library-hero-wide-low-res.jpg'] %> 1280w,
+        <%= manifest['assets/library-hero-wide-hi-res.jpg'] %> 1920w"
+                media="(min-width: 992px)">
+        <img srcset="
+        <%= manifest['assets/library-hero-narrow-low-res.jpg'] %> 720w,
+        <%= manifest['assets/library-hero-narrow-hi-res.jpg'] %> 1080w"
+             alt="Library hall">
+    </picture>
+    <div class="page-banner__content wrapper">
+        <h2 class="page-banner__title">Welcome!</h2>
+        <h3 class="page-banner__subtitle">We think you'll like it here.</h3>
+        <h4 class="page-banner__lead">Why don't you check out the major you're interested in?</h4>
+        <a href="#">Find your major</a>
+    </div>
+</section>
+<%- include('./inc/footer') %>

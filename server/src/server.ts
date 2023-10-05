@@ -9,6 +9,7 @@ const app = express();
 
 app.use((req, res, next) => {
   res.locals.manifest = manifest;
+  res.locals.scripts = ["main", "vendors"];
   next();
 });
 

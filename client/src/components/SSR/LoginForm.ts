@@ -1,10 +1,18 @@
-import { createSSRApp } from "vue";
+import { createSSRApp, ref } from "vue";
 
 export function createLoginForm() {
   return createSSRApp({
-    data: () => ({ count: 2 }),
+    setup() {
+      const count = ref(0);
+
+      function handleClick() {
+        count.value++;
+      }
+
+      return { count, handleClick };
+    },
     template: /*html*/ `
-    <button @click="count++">{{ count }}</button>
-    `,
+      <button @click="handleClick">{{ count }}</button>
+      `,
   });
 }

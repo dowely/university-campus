@@ -10,6 +10,7 @@
     "moduleResolution": "NodeNext",
     "isolatedModules": true,
     "strict": true,
+    "types": ["webpack-env"],
     "paths": {
       "@/*": ["client/src/*"]
     }
