@@ -1,0 +1,51 @@
+@import "./menu-toggle.scss";
+@import "./menu-links.scss";
+@import "./search-form.scss";
+
+.site-header {
+  padding: 12px 0 16px;
+  display: flex;
+  align-items: center;
+
+  &__menu-toggle {
+    width: 26px;
+    height: 32px;
+    margin: 12px 18px;
+  }
+
+  &__logo-text {
+    max-width: 8rem;
+    font-size: 1.65rem;
+    font-weight: 100;
+    margin: 0;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  &__menu-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+  }
+
+  &__menu-forms {
+    border: 1px solid orange;
+
+    font-size: 0;
+    margin-left: auto;
+    margin-right: 18px;
+
+    &__search {
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    &__login {
+      display: inline-block;
+      font-size: 1rem;
+    }
+  }
+}

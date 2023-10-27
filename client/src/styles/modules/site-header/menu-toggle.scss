@@ -1,0 +1,34 @@
+.menu-toggle {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__bar {
+    display: block;
+    height: 3px;
+    background-color: $mainWhite;
+    transition: transform 300ms ease-out;
+
+    .menu-toggle--active & {
+      transform: rotate(135deg);
+    }
+
+    &--top {
+      width: 50%;
+
+      .menu-toggle--active & {
+        transform: rotate(45deg) translate(9px, 6px);
+      }
+    }
+
+    &--bottom {
+      width: 50%;
+      align-self: flex-end;
+
+      .menu-toggle--active & {
+        transform: rotate(45deg) translate(-8px, -5px);
+      }
+    }
+  }
+}

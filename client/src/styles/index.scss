@@ -1,7 +1,10 @@
+@use "sass:color";
 @import "normalize.css";
 @import "base/breakpoints.scss";
 @import "base/colors.scss";
 @import "base/mixins.scss";
 @import "base/global.scss";
-@import "modules/site-header.scss";
+@import "modules/page-layout.scss";
+@import "modules/site-header/index.scss";
+@import "modules/login-form/index.scss";
 @import "modules/page-banner.scss";

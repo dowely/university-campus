@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import { renderToString } from "vue/server-renderer";
-import { createLoginForm } from "@university-campus/client/src/components/SSR/LoginForm";
+import { createSiteHeader } from "@university-campus/client/src/components/SSR/site-header";
 import User from "../models/User";
 
 const home = (req: Request, res: Response) => {
-  const loginForm = createLoginForm();
+  const siteHeader = createSiteHeader();
 
-  renderToString(loginForm).then(loginFormHtml => {
-    res.locals.loginFormHtml = loginFormHtml;
+  renderToString(siteHeader).then(siteHeaderHtml => {
+    res.locals.siteHeaderHtml = siteHeaderHtml;
     res.render("home");
   });
 };
