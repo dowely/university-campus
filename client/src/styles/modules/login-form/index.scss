@@ -1,5 +1,28 @@
 .login-form {
+  &__login-button,
+  &__signup-button {
+    padding: 7px 10px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: $mainWhite;
+    border: none;
+    border-radius: 5px;
+  }
+
+  &__login-button {
+    background-color: $lightOrange;
+    margin-right: 10px;
+  }
+
+  &__signup-button {
+    background-color: $darkOrange;
+  }
+
   &__wrapper {
     position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: $mainWhite;
   }
 }

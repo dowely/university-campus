@@ -10,7 +10,7 @@ export default defineComponent({
   },
   template: html/*html*/ `
     <div class="login-form">
-      <button class="login-form__login-button">Log in</button>
+      <button class="login-form__login-button">Login</button>
       <button class="login-form__signup-button">Sign up</button>
       <div class="login-form__wrapper">
         <h3 class="login-form__title">Log in</h3>
