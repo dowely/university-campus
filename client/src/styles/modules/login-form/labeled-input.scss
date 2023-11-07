@@ -1,0 +1,39 @@
+.labeled-input {
+  position: relative;
+  margin-bottom: 18px;
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: $mediumGray;
+    text-transform: capitalize;
+
+    &.remember-me {
+      position: static;
+      text-transform: none;
+      font-size: 0.8rem;
+      margin-right: 8px;
+      color: $mainBlack;
+    }
+  }
+
+  input {
+    min-width: 0;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid $mediumGray;
+
+    &.remember-me {
+      width: auto;
+      vertical-align: middle;
+      transform: translateY(-1px) scale(1.2);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

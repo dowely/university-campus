@@ -1,6 +1,6 @@
 .menu-links {
   padding: 18px 24px;
-  background-color: color.adjust($color: #0d3b66, $alpha: -0.25);
+  background-color: color.adjust($color: $mainBlue, $alpha: -0.25);
   width: 50%;
   border-bottom-right-radius: 25px;
   visibility: hidden;

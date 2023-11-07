@@ -17,18 +17,34 @@ export const createSiteHeader = () => {
     setup() {
       const isMobileMenuOpen = ref(false);
       const isSearchInputOpen = ref(false);
+      const isLoginFormOpen = ref(false);
 
       function toggleMobileMenu() {
         if (isSearchInputOpen.value) isSearchInputOpen.value = false;
+        if (isLoginFormOpen.value) isLoginFormOpen.value = false;
         isMobileMenuOpen.value = !isMobileMenuOpen.value;
       }
 
       function toggleSearchInput() {
         if (isMobileMenuOpen.value) isMobileMenuOpen.value = false;
+        if (isLoginFormOpen.value) isLoginFormOpen.value = false;
         isSearchInputOpen.value = !isSearchInputOpen.value;
       }
 
-      return { isMobileMenuOpen, isSearchInputOpen, toggleMobileMenu, toggleSearchInput };
+      function toggleLoginForm() {
+        if (isMobileMenuOpen.value) isMobileMenuOpen.value = false;
+        if (isSearchInputOpen.value) isSearchInputOpen.value = false;
+        isLoginFormOpen.value = !isLoginFormOpen.value;
+      }
+
+      return {
+        isMobileMenuOpen,
+        isSearchInputOpen,
+        isLoginFormOpen,
+        toggleMobileMenu,
+        toggleSearchInput,
+        toggleLoginForm,
+      };
     },
     template: html/*html*/ `
       <header class="site-header">
@@ -50,7 +66,9 @@ export const createSiteHeader = () => {
               @toggle-search-input="toggleSearchInput"></search-form>
           </div>
           <div class="site-header__menu-forms__login">
-            <login-form></login-form>
+            <login-form
+              :is-login-form-open="isLoginFormOpen"
+              @toggle-login-form="toggleLoginForm"></login-form>
           </div>
         </div>
       </header>
