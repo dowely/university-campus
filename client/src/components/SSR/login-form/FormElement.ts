@@ -1,5 +1,7 @@
 import { defineComponent, computed } from "vue";
 import LabeledInput from "./LabeledInput";
+import axios from "axios";
+import { attemptedUserData } from "../../../../../types";
 
 const html = String.raw;
 
@@ -25,11 +27,34 @@ export default defineComponent({
           };
     });
 
-    return { inputs };
+    function handleClick(e: SubmitEvent) {
+      const submitterName = (e.submitter as HTMLInputElement).name;
+      const formData = new FormData(e.target as HTMLFormElement);
+
+      let url =
+        submitterName === "login" ? "/login" : submitterName === "signup" ? "/signup" : "/forget";
+
+      let data: attemptedUserData = { email: "", password: "" };
+      if (submitterName === "signup") data.name = "";
+
+      for (let [key, val] of formData.entries()) {
+        data[key] = val;
+      }
+
+      axios({
+        method: "POST",
+        url,
+        data,
+        headers: { "Content-Type": "application/json" },
+      }).catch(e => console.error(e.message));
+    }
+
+    return { inputs, handleClick };
   },
   template: html/*html*/ `
     <form
       class="form-element"
+      novalidate
       @submit.prevent="handleClick">
       <div class="form-element__labeled-inputs">
         <labeled-input

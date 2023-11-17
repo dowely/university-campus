@@ -7,6 +7,9 @@ import manifest from "../manifest.json";
 
 const app = express();
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 app.use((req, res, next) => {
   res.locals.manifest = manifest;
   res.locals.scripts = ["main", "vendors"];

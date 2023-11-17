@@ -40,10 +40,12 @@ export default defineComponent({
         >{{labelText}}</label
       >
       <input
+        autocomplete="off"
         :class="{'remember-me': rememberMe}"
         :id="labelText.replace(' ', '-') + '-input-field'"
-        :type="inputType"
+        :name="labelText"
         ref="input"
+        :type="inputType"
         v-model="input.value"
         @focus="handleFocus"
         @blur="handleBlur" />
