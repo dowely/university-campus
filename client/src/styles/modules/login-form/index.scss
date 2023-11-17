@@ -27,7 +27,7 @@
     right: 0;
     top: 100%;
     padding: 35px 50px;
-    background-color: color.adjust($color: $mainBlue, $alpha: -0.25);
+    background-color: color.adjust($color: $mainBlue, $alpha: -0.1);
     visibility: hidden;
     opacity: 0;
     transform: scale(1.1) translate(0, 5%);

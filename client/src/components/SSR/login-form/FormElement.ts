@@ -1,4 +1,4 @@
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 import LabeledInput from "./LabeledInput";
 
 const html = String.raw;
@@ -11,12 +11,19 @@ export default defineComponent({
   props: {
     formMode: String,
   },
-  setup() {
-    const inputs = {
-      name: "text",
-      email: "email",
-      password: "password",
-    };
+  setup(props) {
+    const inputs = computed(() => {
+      return props.formMode === "login"
+        ? {
+            email: "email",
+            password: "password",
+          }
+        : {
+            name: "text",
+            email: "email",
+            password: "password",
+          };
+    });
 
     return { inputs };
   },
@@ -27,14 +34,17 @@ export default defineComponent({
       <div class="form-element__labeled-inputs">
         <labeled-input
           v-for="(inputType, labelText) in inputs"
+          :key="labelText"
           :label-text="labelText"
-          :input-type="inputType"></labeled-input>
+          :input-type="inputType"
+          :form-mode="formMode"></labeled-input>
       </div>
       <div class="form-element__options">
         <div class="form-element__options__labeled-input">
           <labeled-input
             label-text="Remember me"
             input-type="checkbox"
+            :form-mode="formMode"
             :remember-me="true"></labeled-input>
         </div>
         <input

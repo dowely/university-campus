@@ -5,7 +5,7 @@
     right: 0;
     top: 100%;
     padding: 18px;
-    background-color: color.adjust($color: $mainBlue, $alpha: -0.25);
+    background-color: color.adjust($color: $mainBlue, $alpha: -0.1);
     visibility: hidden;
     opacity: 0;
     transform: scale(0.8) translate(0, 10%);

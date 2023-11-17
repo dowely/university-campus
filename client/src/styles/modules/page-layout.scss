@@ -1,4 +1,8 @@
 .page-layout {
+  &__wrapper {
+    padding-inline: 18px;
+  }
+
   &__site-header {
     position: absolute;
     top: 0;

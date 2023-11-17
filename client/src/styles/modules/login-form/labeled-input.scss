@@ -9,6 +9,7 @@
     transform: translateY(-50%);
     color: $mediumGray;
     text-transform: capitalize;
+    transition: all 200ms ease-out;
 
     &.remember-me {
       position: static;
@@ -16,6 +17,14 @@
       font-size: 0.8rem;
       margin-right: 8px;
       color: $mainBlack;
+    }
+
+    &.focused:not(.remember-me) {
+      top: 0;
+      transform: translateY(-8px);
+      font-size: 75%;
+      padding-inline: 8px;
+      background-color: $mainWhite;
     }
   }
 
